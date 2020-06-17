@@ -15,6 +15,7 @@ def prepare():
     parser.add_argument('--devices', default=None)
     parser.add_argument('--evaluate', default=False, action='store_true')
     args, opts = parser.parse_known_args()
+    args.devices = 'cpu'
     if args.devices is not None and args.devices != 'cpu':
         gpus = set_cuda_visible_devices(args.devices)
     else:
